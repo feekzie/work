@@ -1,0 +1,26 @@
+<h1> {{ vm.title }}</h1>
+
+<div>
+
+  <!-- Nav tabs -->
+  <ul  class="nav nav-tabs link-header" >
+    <li class="toggle-link" ><a href="#unassigned" aria-controls="home" role="tab" data-toggle="tab">Unassigned Submissions</a></li>
+    <li  class="toggle-link"><a href="#assigned" aria-controls="profile" role="tab" data-toggle="tab">Assigned Work</a></li>
+    <li class="toggle-link" ><a href="#completed" aria-controls="messages" role="tab" data-toggle="tab">Completed Work</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="unassigned">
+    <ul class="work-tab"> <li class="work-links" ng-repeat = "work in vm.works | filter:{submitted:true, progress:false, completed:false}"><a ng-href="#!/work/{{ work._id }}"><h3>{{ work.fault }} </h3> <p> {{ work.name }} </p> <p class='righter'> {{ work.address }}</p></a></li> </ul>
+      
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="assigned"> <ul class="work-tab"> <li class="work-links" ng-repeat = "work in vm.works | filter:{submitted:true, progress:true, completed:false}"><a ng-href="#!/work/{{ work._id }}"><h3>{{ work.fault }} </h3> <p> {{ work.name }} </p> <p class='righter'> {{ work.address }}</p></a></li> </ul>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="completed">
+    <ul class="work-tab"> <li class="work-links" ng-repeat = "work in vm.works | filter:{submitted:true, progress:true, completed:true}"><a ng-href="#!/work/{{ work._id }}"><h3>{{ work.fault }} </h3> <p> {{ work.name }} </p> <p class='righter'> {{ work.address }}</p></a></li> </ul>
+    </div>
+    
+  </div>
+
+</div>

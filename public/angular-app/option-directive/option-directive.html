@@ -1,0 +1,13 @@
+<form name="vm.reviewForm" ng-submit="vm.addReview()" ng-controller="TechController as vm">
+
+<div>
+<select ng-model="vm.selectedTechnician" required> 
+  <option value="">Select Technician</option> 
+  <option ng-repeat="technician in vm.tech_list" value="{{technician.name}}"> {{technician.name}} </option>
+</select>
+    <span style="color:red">{{msg}}</span><br />   
+</div>
+<br>
+
+<button type="submit" class="btn btn-default assign-btn">Assign </button>
+ </form>
